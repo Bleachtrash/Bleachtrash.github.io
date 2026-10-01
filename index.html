@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="title">Javascript Quiz</h1>
+    </header>
+    <main>
+        <ol id="questions">
+            <div class="question">
+                <li>
+                    How do you declare a variable in Javascript?
+                </li>
+                <div id="q1_options" class="question_answer"></div>
+            </div>
+            <div class="question">
+                <li>
+                    Select the third element of the array "arr"
+                </li>
+                <input type="text" id="q2_textbox" class="question_answer">
+            </div>
+            <div class="question">
+                <li>
+                    You are allowed to mix types in a Javascript array
+                </li>
+                <div id="q3_options" class="question_answer">
+                    <label><input name="q3_option" value="true" type="radio"> true</label>
+                    <label><input name="q3_option" value="false" type="radio"> false</label>
+                </div>
+            </div>
+            <div class="question">
+                <li>
+                    How do you check if two things are equal in Javascript?
+                </li>
+                <select id="q4_dropdown" class="question_answer">
+                    <option></option>
+                    <option>a = b</option>
+                    <option>a == b</option>
+                    <option>a equals b</option>
+                </select>
+            </div>
+            <div class="question">
+                <li>
+                    What year was Javascript created?
+                </li>
+                <input type="number" id="q5_textbox" class="question_answer">
+            </div>
+        </ol>
+        <button id="submit_button">Submit!</button>
+        <h2 id="score"></h2>
+        <p id="quiz_time"></p>
+        <br/>
+    </main>
+</body>
+<script src="scripts/script.js"></script>
+
+</html>
