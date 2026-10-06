@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div id="search">
+            <input id="search_bar" type="text">
+            <select id="search_type">
+                <option value="select"> Select Type
+                <option value="ammos">Ammos
+                <option value="armors">Armors
+                <option value="ashes">Ashes of War
+                <option value="bosses">Bosses
+                <option value="classes">Classes
+                <option value="creatures">Creatures
+                <option value="incantations">Incantations
+                <option value="items">Items
+                <option value="locations">Locations
+                <option value="npcs">NPCs
+                <option value="shields">Shields
+                <option value="sorceries">Sorceries
+                <option value="spirits">Spirits
+                <option value="talismans">Talismans
+                <option value="weapons">Weapons
+            </select>
+        </div>
+    </header>
+    <main>
+        <div id="options">
+            <div id="ammo_status">
+                <h2 id="ammo_status_title">Status Affect</h2>
+                <label><input type="radio" name="ammo_status" value="poison">Poison</label>
+                <label><input type="radio" name="ammo_status" value="scarlet">Scarlet rot</label>
+                <label><input type="radio" name="ammo_status" value="blood">Blood loss</label>
+                <label><input type="radio" name="ammo_status" value="frost">Frost Bite</label>
+                <label><input type="radio" name="ammo_status" value="None">None</label>
+            </div>
+            <table id="scaling">
+                <h2 id="scaling_title">Scaling</h2>
+                <tr id="Str_scaling">
+                    <td>Strength:</td>
+                    <td>
+                        <label><input type="checkbox" name="A" value="A"> A </label>
+                        <label><input type="checkbox" name="B" value="B"> B </label>
+                        <label><input type="checkbox" name="C" value="C"> C </label>
+                        <label><input type="checkbox" name="D" value="D"> D </label>
+                        <label><input type="checkbox" name="E" value="E"> E </label>
+                        <label><input type="checkbox" name="F" value="F"> F </label>
+                    </td>
+                </tr>
+                <tr id="Dex_scaling">
+                    <td>Dexterity:</td>
+                    <td>
+                        <label><input type="checkbox" name="A" value="A"> A </label>
+                        <label><input type="checkbox" name="B" value="B"> B </label>
+                        <label><input type="checkbox" name="C" value="C"> C </label>
+                        <label><input type="checkbox" name="D" value="D"> D </label>
+                        <label><input type="checkbox" name="E" value="E"> E </label>
+                        <label><input type="checkbox" name="F" value="F"> F </label>
+                    </td>
+                </tr>
+                <tr id="Int_scaling">
+                    <td>Intelligence:&ensp;</td>
+                    <td>
+                        <label><input type="checkbox" name="A" value="A"> A </label>
+                        <label><input type="checkbox" name="B" value="B"> B </label>
+                        <label><input type="checkbox" name="C" value="C"> C </label>
+                        <label><input type="checkbox" name="D" value="D"> D </label>
+                        <label><input type="checkbox" name="E" value="E"> E </label>
+                        <label><input type="checkbox" name="F" value="F"> F </label>
+                    </td>
+                </tr>
+                <tr id="Fai_scaling">
+                    <td>Faith:</td>
+                    <td>
+                        <label><input type="checkbox" name="A" value="A"> A </label>
+                        <label><input type="checkbox" name="B" value="B"> B </label>
+                        <label><input type="checkbox" name="C" value="C"> C </label>
+                        <label><input type="checkbox" name="D" value="D"> D </label>
+                        <label><input type="checkbox" name="E" value="E"> E </label>
+                        <label><input type="checkbox" name="F" value="F"> F </label>
+                    </td>
+                </tr>
+                <tr id="Arc_scaling">
+                    <td>Arcane:</td>
+                    <td>
+                        <label><input type="checkbox" name="A" value="A"> A </label>
+                        <label><input type="checkbox" name="B" value="B"> B </label>
+                        <label><input type="checkbox" name="C" value="C"> C </label>
+                        <label><input type="checkbox" name="D" value="D"> D </label>
+                        <label><input type="checkbox" name="E" value="E"> E </label>
+                        <label><input type="checkbox" name="F" value="F"> F </label>
+                    </td>
+                </tr>
+            </table>
+            <button id="apply_options">Apply</button>
+            <button id="clear_options">Clear</button>
+        </div>
+        <div id="content">
+            <div id="items"></div>
+            <button id="prev_button">Prev</button>
+            <button id="next_button">Next</button>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+<script src="scripts/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+</html>
