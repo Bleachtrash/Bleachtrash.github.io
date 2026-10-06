@@ -1,0 +1,105 @@
+body
+{
+    background-color: rgb(20, 8, 30);
+}
+
+#header
+{
+    text-align: center;
+    color: white;
+    font-family: 'Fontdiner Swanky',    serif;
+    /* font-family: 'Pacifico', cursive; */
+    font-size: 3vw;
+}
+#images
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    height: 15vw;
+}
+#navigation
+{
+    width: 100vw;
+    height: 5vh;
+    background-color: rgb(255, 180, 100);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+#content
+{
+    margin: 0 auto;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#contact
+{
+    background-color: rgb(20, 100, 60);
+    margin: 0 auto;
+}
+.nav_button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 10%;
+    border-radius: 0;
+    background-color: rgb(80, 10, 120);
+    color: white;
+    outline: 1px solid white;
+}
+.image
+{
+    border-radius: 20px;
+    outline: 1px solid white;
+    width: 25%;
+    margin: 1%;
+    background-color: rgb(20, 100, 60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.team_pic
+{
+    border-radius: 5px;
+    height: 70%;
+    margin: 10px;
+    background-color: white;
+}
+
+.img_caption
+{
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.text
+{
+    color: white;
+    margin: 2px;
+}
+
+footer
+{
+    display: flex;
+    flex: row;
+    gap: 50px;
+    justify-content: center;
+}
+
+table
+{
+    text-align: left;
+    margin-bottom: 50px;
+}
