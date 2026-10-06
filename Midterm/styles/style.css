@@ -71,6 +71,11 @@ footer{
     background-color: #d8d2c3;
     border-radius: 10px;
     user-select: none;
+    overflow-y: scroll;
+}
+.item_name{
+    font-size: large;
+    height: 10%;
 }
 .item_image{
     width: 80%;
@@ -78,7 +83,6 @@ footer{
     border-radius: 10px;
     background: radial-gradient(circle,rgba(179, 173, 118, 1) 0%, rgba(92, 74, 14, 1) 50%, rgba(23, 19, 6, 1) 97%);
 }
-.item_name{
-    font-size: large;
-    height: 10%;
+.item_desc{
+    margin: 10px;
 }

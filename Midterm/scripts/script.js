@@ -9,8 +9,10 @@ prev_button.style.display = "none";
 const next_button = document.getElementById("next_button");
 next_button.style.display = "none";
 
+
 const options = document.getElementById("options");
 const ammo_status_option = document.getElementById("ammo_status");
+const armor_type_option = document.getElementById("armor_type");
 const scaling_option = document.getElementById("scaling");
 const apply_button = document.getElementById("apply_options");
 apply_button.style.display = "none";
@@ -19,6 +21,8 @@ clear_button.style.display = "none";
 hide_options();
 
 let page_number = 0;
+let api_page_number = 0;
+let api_page_numbers = [];
 
 for (input of document.getElementsByTagName("input")) {
     if (input.type == "text")
@@ -27,7 +31,7 @@ for (input of document.getElementsByTagName("input")) {
 }
 
 async function search_api(type, name) {
-    const result = await fetch(api + type + "?name=" + name + "&page=" + page_number);
+    const result = await fetch(api + type + "?name=" + name + "&page=" + api_page_number);
     let json = await result.json();
     return json;
 }
@@ -80,6 +84,18 @@ function check_ammo(ammo) {
     return true;
 }
 
+function check_armor(armor){
+    let num_checked = 0;
+    for(at of armor_type_option.querySelectorAll("input")){
+        if(!at.checked)
+            continue;
+        num_checked++;
+        if(at.value == armor.category)
+            return true;
+    }
+    return !num_checked;
+}
+
 function clear_options(){
     for(opt of options.querySelectorAll("input")){
         opt.checked = false;
@@ -102,6 +118,11 @@ async function search() {
             for (i of ammo_status_option.children)
                 i.style.display = "";
             break;
+        case "armors":
+            armor_type_option.style.display = "";
+            for(i of armor_type_option.children)
+                i.style.display = "";
+            break;
         case "weapons":
             document.getElementById("scaling_title").style.display = "";
             scaling_option.style.display = "";
@@ -112,7 +133,7 @@ async function search() {
             break;
     }
 
-    const page_started = page_number;
+    // const page_started = page_number;
     do {
         json = await search_api(search_type.value, search_bar.value);
         for (i of json.data) {
@@ -120,6 +141,9 @@ async function search() {
                 continue;
             }
             if (search_type.value == "ammos" && !check_ammo(i)) {
+                continue;
+            }
+            if(search_type.value == "armors" && !check_armor(i)){
                 continue;
             }
             let item = document.createElement("div");
@@ -136,14 +160,16 @@ async function search() {
 
             items.append(item);
             let desc = document.createElement("p");
-            desc.class = RTCSessionDescription;
+            desc.className = "item_desc";
             desc.innerHTML = i.description;
             item.append(desc);
         }
         if (items.children.length < 20)
-            page_number++;
+            api_page_number++;
     } while (json.count && items.children.length < 20);
-    page_number = page_started;
+    if(page_number >= api_page_numbers.length)
+        api_page_numbers.push(api_page_number);
+    // page_number = page_started;
     if (!page_number)
         prev_button.style.display = "none";
     else
@@ -156,26 +182,32 @@ async function search() {
 
 search_bar.addEventListener("change", function () {
     page_number = 0;
+    api_page_number = page_number;
     search();
 });
 search_type.addEventListener("change", function () {
     page_number = 0;
+    api_page_number = page_number;
     search();
 });
 
 prev_button.addEventListener("click", function () {
     page_number--;
+    api_page_number = api_page_numbers[page_number];
     search();
 });
 next_button.addEventListener("click", function () {
     page_number++;
+    api_page_number++;
     search();
 });
 apply_button.addEventListener("click", function(){
     page_number = 0;
+    api_page_number = page_number;
     search();
 });
 clear_button.addEventListener("click", function(){
     page_number = 0;
+    api_page_number = page_number;
     clear_options();
 });
