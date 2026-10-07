@@ -218,6 +218,9 @@ async function search() {
             let desc = document.createElement("p");
             desc.className = "item_desc";
             desc.innerHTML = i.description;
+            if(search_type.value == "npcs"){
+                desc.innerHTML = "Location: " + i.location + "\nRole: " + i.role;
+            }
             item.append(desc);
         }
         if (items.children.length < 20)
