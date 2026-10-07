@@ -1,8 +1,13 @@
+body{
+    overflow: hidden;
+}
 main{
     min-height: calc(100vh - 45px);
     background-color: azure;
     display: flex;
     width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 footer{
     margin: 10px;
@@ -31,7 +36,7 @@ footer{
     text-align: center;
     height: 100%;
     margin: 0px;
-    padding: 0px;
+    padding: 10px;
     border-radius: 0;
     border: none;
     border-radius: 0px 10px 10px 0px;
@@ -39,8 +44,7 @@ footer{
 
 #options{
     height: fill;
-    min-width: 300px;
-    width: fit-content;
+    width: 400px;
     background-color: grey;
     user-select: none;
     padding: 5px;
@@ -50,11 +54,24 @@ footer{
     font-size: x-large;
     width: 100%;
 }
+.option label{
+    width: 45%;
+}
+.option label input{
+    margin: 5px;
+}
+
+#location label{
+    width: 100%;
+}
+
 #content{
     /* width: calc(100vw - 16vw); */
+    width: calc(100vw - 400px);
     padding: 20px;
-    min-height: fill;
+    height: fill;
     text-align: center;
+    overflow-y: scroll;
 }
 #items{
     display: flex;
@@ -67,7 +84,8 @@ footer{
 .item{
     text-align: center;
     padding: 20px;
-    width: 20%;
+    width: 300px;
+    height: 600px;
     background-color: #d8d2c3;
     border-radius: 10px;
     user-select: none;
@@ -78,6 +96,7 @@ footer{
     height: 10%;
 }
 .item_image{
+    color: white;
     width: 80%;
     border: 1px solid black;
     border-radius: 10px;

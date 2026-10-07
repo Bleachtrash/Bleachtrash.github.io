@@ -36,7 +36,7 @@
     </header>
     <main>
         <div id="options">
-            <div id="ammo_status">
+            <div id="ammo_status" class="option">
                 <h2 id="ammo_status_title">Status Affect</h2>
                 <label><input type="radio" name="ammo_status" value="poison">Poison</label>
                 <label><input type="radio" name="ammo_status" value="scarlet">Scarlet rot</label>
@@ -44,12 +44,53 @@
                 <label><input type="radio" name="ammo_status" value="frost">Frost Bite</label>
                 <label><input type="radio" name="ammo_status" value="None">None</label>
             </div>
-            <div id="armor_type">
+            <div id="armor_type" class="option">
                 <h2 id="armor_type_title">Armor Type</h2>
                 <label><input type="checkbox" name="armor_type" value="Helm">Helms</label>
                 <label><input type="checkbox" name="armor_type" value="Chest Armor">Chest Pieces</label>
                 <label><input type="checkbox" name="armor_type" value="Gauntlets">Gauntlets</label>
                 <label><input type="checkbox" name="armor_type" value="Leg Armor">Grieves</label>
+            </div>
+            <div id="ash_affinity" class="option">
+                <h2 id="ash_affinity_title">Ash Affinity</h2>
+                <label><input type="checkbox" name="ash_affinity" value="Standard">Standard</label>
+                <label><input type="checkbox" name="ash_affinity" value="Heavy">Heavy</label>
+                <label><input type="checkbox" name="ash_affinity" value="Keen">Keen</label>
+                <label><input type="checkbox" name="ash_affinity" value="Quality">Quality</label>
+                <label><input type="checkbox" name="ash_affinity" value="Magic">Magic</label>
+                <label><input type="checkbox" name="ash_affinity" value="Frost">Frost</label>
+                <label><input type="checkbox" name="ash_affinity" value="Fire">Fire</label>
+                <label><input type="checkbox" name="ash_affinity" value="Flame Art">Flame Art</label>
+                <label><input type="checkbox" name="ash_affinity" value="Lightning">Lightning</label>
+                <label><input type="checkbox" name="ash_affinity" value="Sacred">Sacred</label>
+                <label><input type="checkbox" name="ash_affinity" value="Poison">Poison</label>
+                <label><input type="checkbox" name="ash_affinity" value="Blood">Blood</label>
+                <label><input type="checkbox" name="ash_affinity" value="Occult">Occult</label>
+            </div>
+            <div id="item_type" class="option">
+                <h2>Item Type</h2>
+                <label><input type="radio" name="item_type" value="Reusable">Reusable</label>
+                <label><input type="radio" name="item_type" value="Consumable">Consumable</label>
+                <label><input type="radio" name="item_type" value="Misc">Misc</label>
+            </div>
+            <div id="location">
+                <h2>Location Region</h2>
+                <select id="location_select">
+                    <option name="location_region" value="">
+                    <option name="location_region" value="Limgrave">Limgrave
+                    <option name="location_region" value="Weeping Peninsula">Weeping Peninsula
+                    <option name="location_region" value="Liurnia of the Lakes">Liurnia of the Lakes
+                    <option name="location_region" value="Caelid">Caelid
+                    <option name="location_region" value="Dragonbarrow">Dragonbarrow
+                    <option name="location_region" value="Altus Plateu">Altus Plateu
+                    <option name="location_region" value="Mt. Gelmir">Mt. Gelmir
+                    <option name="location_region" value="Capital Outskirts">Capital Outskirts
+                    <option name="location_region" value="Leyndell">Leyndell
+                    <option name="location_region" value="Mountaintops of the Giants">Mountaintops of the Giants
+                    <option name="location_region" value="Forbidden Lands">Forbidden Lands
+                    <option name="location_region" value="Consecrated Snowfield">Consecrated Snowfield
+                    <option name="location_region" value="Miquella's Haligtree">Miquella's Haligtree
+                </select>
             </div>
             <table id="scaling">
                 <h2 id="scaling_title">Scaling</h2>

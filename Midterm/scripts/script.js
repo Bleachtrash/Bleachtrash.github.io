@@ -13,7 +13,13 @@ next_button.style.display = "none";
 const options = document.getElementById("options");
 const ammo_status_option = document.getElementById("ammo_status");
 const armor_type_option = document.getElementById("armor_type");
+const ash_affinity_option = document.getElementById("ash_affinity");
+const item_type_option = document.getElementById("item_type");
+const location_option = document.getElementById("location");
+const location_option_select = document.getElementById("location_select");
+location_option_select.value = "";
 const scaling_option = document.getElementById("scaling");
+
 const apply_button = document.getElementById("apply_options");
 apply_button.style.display = "none";
 const clear_button = document.getElementById("clear_options");
@@ -29,7 +35,6 @@ for (input of document.getElementsByTagName("input")) {
         input.value = "";
     input.checked = false;
 }
-
 async function search_api(type, name) {
     const result = await fetch(api + type + "?name=" + name + "&page=" + api_page_number);
     let json = await result.json();
@@ -84,20 +89,46 @@ function check_ammo(ammo) {
     return true;
 }
 
-function check_armor(armor){
+function check_armor(armor) {
     let num_checked = 0;
-    for(at of armor_type_option.querySelectorAll("input")){
-        if(!at.checked)
+    for (at of armor_type_option.querySelectorAll("input")) {
+        if (!at.checked)
             continue;
         num_checked++;
-        if(at.value == armor.category)
+        if (at.value == armor.category)
             return true;
     }
     return !num_checked;
 }
 
-function clear_options(){
-    for(opt of options.querySelectorAll("input")){
+function check_ash(ash) {
+    let num_checked = 0;
+    for (aa of ash_affinity_option.querySelectorAll("input")) {
+        if (!aa.checked)
+            continue;
+        num_checked++;
+        if (aa.value == ash.affinity)
+            return true;
+    }
+    return !num_checked;
+}
+
+function check_item(item) {
+    for (it of item_type_option.querySelectorAll("input")) {
+        if (!it.checked)
+            continue;
+        return it.value == item.type;
+    }
+    return true;
+}
+
+function check_location(location) {
+    return (location_option_select.value == "" || location_option_select.value == location.region);
+    // return true;
+}
+
+function clear_options() {
+    for (opt of options.querySelectorAll("input")) {
         opt.checked = false;
     }
 }
@@ -120,9 +151,25 @@ async function search() {
             break;
         case "armors":
             armor_type_option.style.display = "";
-            for(i of armor_type_option.children)
+            for (i of armor_type_option.children)
                 i.style.display = "";
             break;
+        case "ashes":
+            ash_affinity_option.style.display = "";
+            for (i of ash_affinity_option.children)
+                i.style.display = "";
+            break;
+        case "items":
+            item_type_option.style.display = "";
+            for (i of item_type_option.children)
+                i.style.display = "";
+            break;
+        case "locations":
+            location_option.style.display = "";
+            for (i of location_option.children)
+                i.style.display = "";
+            break;
+        case "shields":
         case "weapons":
             document.getElementById("scaling_title").style.display = "";
             scaling_option.style.display = "";
@@ -137,13 +184,22 @@ async function search() {
     do {
         json = await search_api(search_type.value, search_bar.value);
         for (i of json.data) {
-            if (search_type.value == "weapons" && !check_weapon(i)) {
+            if ((search_type.value == "weapons" || search_type.value == "shields") && !check_weapon(i)) {
                 continue;
             }
             if (search_type.value == "ammos" && !check_ammo(i)) {
                 continue;
             }
-            if(search_type.value == "armors" && !check_armor(i)){
+            if (search_type.value == "armors" && !check_armor(i)) {
+                continue;
+            }
+            if (search_type.value == "ashes" && !check_ash(i)) {
+                continue;
+            }
+            if (search_type.value == "items" && !check_item(i)) {
+                continue;
+            }
+            if(search_type.value == "locations" && !check_location(i)){
                 continue;
             }
             let item = document.createElement("div");
@@ -167,14 +223,14 @@ async function search() {
         if (items.children.length < 20)
             api_page_number++;
     } while (json.count && items.children.length < 20);
-    if(page_number >= api_page_numbers.length)
+    if (page_number >= api_page_numbers.length)
         api_page_numbers.push(api_page_number);
     // page_number = page_started;
     if (!page_number)
         prev_button.style.display = "none";
     else
         prev_button.style.display = "";
-    if (page_number == Math.floor(json.total / 20) || items.children.length<20)
+    if (page_number == Math.floor(json.total / 20) || items.children.length < 20)
         next_button.style.display = "none";
     else
         next_button.style.display = "";
@@ -201,12 +257,12 @@ next_button.addEventListener("click", function () {
     api_page_number++;
     search();
 });
-apply_button.addEventListener("click", function(){
+apply_button.addEventListener("click", function () {
     page_number = 0;
     api_page_number = page_number;
     search();
 });
-clear_button.addEventListener("click", function(){
+clear_button.addEventListener("click", function () {
     page_number = 0;
     api_page_number = page_number;
     clear_options();
