@@ -3,7 +3,7 @@ body{
 }
 main{
     min-height: calc(100vh - 45px);
-    background-color: azure;
+    background-color:#181818;
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -16,9 +16,10 @@ footer{
 }
 
 #search{
-    background-color: aqua;
+    background: radial-gradient(circle,rgb(100, 92, 53) 0%, rgb(64, 51, 9) 30%, rgba(23, 19, 6, 1) 80%);
     width: 100vw;
-    height: 40px;
+    height: 6vh;
+    border-bottom: 1px solid #d8d2c3;
     display: flex;
     gap: 0px;
     justify-content: center;
@@ -43,11 +44,17 @@ footer{
 }
 
 #options{
-    height: fill;
+    border-right: 1px solid #d8d2c3;
+    /* text-align: center; */
+    color: #d8d2c3;
+    background-color:rgb(23, 19, 6);
     width: 400px;
-    background-color: grey;
+    padding-top: 50px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     user-select: none;
-    padding: 5px;
 }
 #options h2{
     text-align: center;
@@ -66,14 +73,14 @@ footer{
 }
 
 #content{
-    /* width: calc(100vw - 16vw); */
-    width: calc(100vw - 400px);
-    padding: 20px;
-    height: fill;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     overflow-y: scroll;
+    height: 94vh;
 }
 #items{
+    margin: 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -104,4 +111,8 @@ footer{
 }
 .item_desc{
     margin: 10px;
+}
+.buttons{
+    margin-bottom: 10px;
+    text-align: center;
 }

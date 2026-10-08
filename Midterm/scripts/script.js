@@ -21,8 +21,8 @@ location_option_select.value = "";
 const scaling_option = document.getElementById("scaling");
 
 const apply_button = document.getElementById("apply_options");
-apply_button.style.display = "none";
 const clear_button = document.getElementById("clear_options");
+apply_button.style.display = "none";
 clear_button.style.display = "none";
 hide_options();
 
@@ -43,7 +43,7 @@ async function search_api(type, name) {
 
 function hide_options() {
     for (option of options.children) {
-        if (option.innerHTML == "Apply")
+        if (option.innerHTML == "Apply" || option.className == "buttons")
             continue;
         option.style.display = "none";
     }
