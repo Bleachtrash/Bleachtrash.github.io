@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: black;
+    flex-direction: column;
+}
+
+img {
+    height: 200px;
+    border-radius: 10px;
+    border: 1px solid silver;
+    user-select: none;
+}
+
+#content{
+    text-align: center;
+    padding: 10px;
+}
+#content *{
+    margin: 5px;
+}
+#navbar{
+    text-align: center;
+    background-color: silver;
+}

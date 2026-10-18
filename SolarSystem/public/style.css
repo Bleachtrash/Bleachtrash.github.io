@@ -1,0 +1,54 @@
+body{
+    user-select: none;
+    background-color: cornflowerblue;
+}
+header{
+    text-align: center;
+}
+header h1, div{
+    margin: 20px;
+}
+main{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+footer{
+    text-align: center;
+    height: 10vh;
+}
+footer img{
+    height: 100%;
+}
+#content{
+    width: 70%;
+    text-align: center;
+}
+h1, p, a{
+    color: black;
+}
+#navbar{
+    text-align: center;
+    background-color: silver;
+    padding: 5px;
+    color: black;
+}
+#navbar a{
+    margin: 5px;
+}
+
+.planet_img{
+    margin-bottom: 20px;
+    width: 500px;
+    outline: 1px solid black;
+    border-radius: 10px;
+}
+
+#home_main{
+    display: flex;
+    flex-wrap: wrap;
+}
+.home_image{
+    height: 300px;
+    margin: 5px;
+}
