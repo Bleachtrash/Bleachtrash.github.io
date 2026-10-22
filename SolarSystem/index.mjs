@@ -36,7 +36,7 @@ app.get('/', async (req, res) => {
 });
 
 
-app.get('/planetInfo', (req, res) => {
+app.get('/planetInfo', async(req, res) => {
    let planet = req.query.planet;
    let picture = "";
    var data;
@@ -52,35 +52,54 @@ app.get('/planetInfo', (req, res) => {
          break;
       case "Mars":
          data = solarSystem.getMars();
+         data.image = "https://science.nasa.gov/wp-content/uploads/2024/03/pia04304-mars.jpg";
          break;
       case "Jupiter":
          data = solarSystem.getJupiter();
+         data.image = "https://science.nasa.gov/wp-content/uploads/2024/03/jupiter-marble-pia22946.jpg?";
          break;
       case "Saturn":
          data = solarSystem.getSaturn();
          break;
       case "Uranus":
          data = solarSystem.getUranus();
+         data.image = "https://science.nasa.gov/wp-content/uploads/2024/05/webb-stsci-01hhfp5g5bxsc5m7dx6dg9yxmb.png";
          break;
       case "Neptune":
          data = solarSystem.getNeptune();
          break;
       case "Pluto":
          data = solarSystem.getPluto();
+         data.image = "https://science.nasa.gov/wp-content/uploads/2024/03/pluto-new-horizons-pia20291-16x9-1.jpg";
+         break;
+      case "Asteroids":
+         data = solarSystem.getAsteroids();
+         break;
+      case "Comets":
+         data = solarSystem.getComets();
          break;
       default:
          break;
    }
+   if(planet == "NASA Pod"){
+      try{
+         var pod_url = "https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date="
+         const d = new Date();
+         pod_url += d.getFullYear()+"-";
+         pod_url += d.getMonth()+"-";
+         pod_url += d.getDate();
+
+         const result = await fetch(pod_url);
+         data = await result.json();
+         data.status = "good";
+      }catch(e){
+         data = {};
+         data.status = "bad";
+      }
+   }
    data.name = planet;
    res.render("planet.ejs", data);
-   // if (planet === 'Jupiter') {
-   //    //render the planetInfo view with jupiter information
-   // } else (planet === 'Mars') {
-   //    //render the planetInfo view with mars information
-   // }
 });
-
-
 
 app.listen(3000, () => {
    console.log('server started');

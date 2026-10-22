@@ -1,6 +1,6 @@
 body{
     user-select: none;
-    background-color: cornflowerblue;
+    background-color: rgb(11, 5, 22);
 }
 header{
     text-align: center;
@@ -8,47 +8,71 @@ header{
 header h1, div{
     margin: 20px;
 }
-main{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
 footer{
-    text-align: center;
-    height: 10vh;
+    margin-top: 50px;
+    display: flex;
+    color: silver;
+    justify-content: center;
+    height: 150px;
 }
 footer img{
     height: 100%;
 }
-#content{
-    width: 70%;
-    text-align: center;
-}
-h1, p, a{
-    color: black;
-}
+
 #navbar{
     text-align: center;
-    background-color: silver;
+    background-color: darkslateblue;
     padding: 5px;
     color: black;
 }
 #navbar a{
     margin: 5px;
 }
-
-.planet_img{
-    margin-bottom: 20px;
-    width: 500px;
-    outline: 1px solid black;
-    border-radius: 10px;
+#navbar a button{
+    color: black;
+    background-color: silver;
 }
 
+.content{
+    color: silver;
+    width: 100%;
+    text-align: center;
+}
+
+#planet_info{
+    margin: 0px 10% 0px 10%;
+    display: flex;
+    gap: 10px;
+    height: fit-content;
+    background-color: rgb(34, 8, 18);
+    padding: 30px;
+    color: silver;
+}
+#planet_info_left{
+    text-align: center;
+    width: 50%;
+}
+#planet_info_left img{
+    max-width: 100%;
+    max-height: 500px;
+}
+#planet_info_right{
+    margin: auto;
+    max-width: 50%;
+}
+#planet_info_right a{
+    color: silver;
+}
 #home_main{
+    margin: auto;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(34, 8, 18);
 }
 .home_image{
+    background-color: silver;
     height: 300px;
     margin: 5px;
 }
