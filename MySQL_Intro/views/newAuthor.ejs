@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>New Author</h1>
+    <form action="/insertAuthor" method="post">
+        <label for="authorFirstName">First name</label>
+        <input name="authorFirstName" id="authorFirstNameInput">
+        <% if (formErrors.authorFirstName) { %>
+            <span class="form-error"><%= formErrors.authorFirstName %></span>
+        <% } %>
+
+        <label for="authorLastName">Last name</label>
+        <input name="authorLastName" id="authorLastNameInput">
+        <% if (formErrors.authorLastName) { %>
+            <span class="form-error"><%= formErrors.authorLastName %></span>
+        <% } %>
+
+        <label for="authorDOB">Date of Birth</label>
+        <input type="date" name="authorDOB" id="authorDOBInput">
+        <% if (formErrors.authorDOB) { %>
+            <span class="form-error"><%= formErrors.authorDOB %></span>
+        <% } %>
+        <label for="authorDOD">Date of Death</label>
+        <input type="date" name="authorDOD" id="authorDODInput">
+        <% if (formErrors.authorDOD) { %>
+            <span class="form-error"><%= formErrors.authorDOD %></span>
+        <% } %>
+
+        <label for="authorGender">Gender</label>
+        <select name="authorGender" id="authorGenderSelect">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <label for="authorProfession">Profession</label>
+        <input name="authorProfession", id="authorProfessionInput">
+        <% if (formErrors.authorProfession) { %>
+            <span class="form-error"><%= formErrors.authorProfession %></span>
+        <% } %>
+
+        <label for="authorCountry">Country</label>
+        <input name="authorCountry", id="authorCountryInput">
+        <% if (formErrors.authorCountry) { %>
+            <span class="form-error"><%= formErrors.authorCountry %></span>
+        <% } %>
+
+        <label for="authorPortrait">Portrait Link</label>
+        <input name="authorPortrait", id="authorPortraitInput">
+        <% if (formErrors.authorPortrait) { %>
+            <span class="form-error"><%= formErrors.authorPortrait %></span>
+        <% } %>
+
+        <label for="authorBiography">Biography</label>
+        <input name="authorBiography", id="authorBiographyInput">
+        <% if (formErrors.authorBiography) { %>
+            <span class="form-error"><%= formErrors.authorBiography %></span>
+        <% } %>
+
+        <button>Create</button>
+    </form>
+
+</body>
+</html>
